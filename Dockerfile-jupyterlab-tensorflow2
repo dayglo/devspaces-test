@@ -1,0 +1,21 @@
+FROM jupyter/tensorflow-notebook:latest
+
+USER root
+
+RUN conda install -c conda-forge jupyterlab
+
+RUN chgrp -R root /home/$NB_USER \
+    && chmod -R g+rwx,o+rx /home/$NB_USER  \
+    && chmod -R g+rw       /home/$NB_USER \
+    && chgrp -R root       /opt/conda \
+    && chmod -R g+rwx,o+rx /opt/conda \
+    && chmod -R g+rw       /opt/conda 
+
+RUN mkdir -p /projects  \
+    && chgrp -R root        /projects \
+    && chmod -R g+rwx,o+rx  /projects \
+    && chmod -R g+rw        /projects 
+
+ENV HOME /home/$NB_USER
+
+USER 1000
