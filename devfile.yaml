@@ -20,7 +20,7 @@ components:
       size: 512Mi
   - name: conda
     container:
-      image: dayglo-jupyterlab
+      image: openshift-operators/dayglo-jupyterlab@sha256:96a60ed6c766f63e3daec66557d5c59a67bb65a97f255a5d5923dda0e5a83f89
       mountSources: true
       env:
         - name: NOTEBOOK_ARGS
