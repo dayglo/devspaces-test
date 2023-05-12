@@ -20,7 +20,7 @@ components:
       size: 512Mi
   - name: conda
     container:
-      image: jupyter/scipy-notebook:2023-02-28
+      image: docker.io/dayglo/jupyter002:latest
       mountSources: true
       env:
         - name: NOTEBOOK_ARGS
