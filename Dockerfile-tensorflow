@@ -1,0 +1,25 @@
+FROM jupyter/tensorflow-notebook:x86_64-tensorflow-2.11.1
+
+USER root
+
+RUN conda install -c conda-forge jupyterlab tensorflow-hub
+
+RUN mkdir /home/$NB_USER/images 
+
+COPY ./images/* /home/$NB_USER/images 
+
+RUN chgrp -R root /home/$NB_USER \
+    && find /home/$NB_USER -type d -exec chmod g+rwx,o+rx {} \; \
+    && find /home/$NB_USER -type f -exec chmod g+rw {} \; \
+    && chgrp -R root /opt/conda \
+    && find /opt/conda -type d -exec chmod g+rwx,o+rx {} \; \
+    && find /opt/conda -type f -exec chmod g+rw {} \;
+
+RUN mkdir -p /projects  \
+    && chgrp -R root /projects \
+    && find /projects -type d -exec chmod g+rwx,o+rx {} \; \
+    && find /projects -type f -exec chmod g+rw {} \;
+
+ENV HOME /home/$NB_USER
+
+USER 1000
