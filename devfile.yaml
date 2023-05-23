@@ -10,8 +10,6 @@ components:
           path: /home/user/.venv
         - name: home
           path: /home/jovyan/work
-        - name: models
-          path: /home/jovyan/models
       memoryLimit: 2G
       mountSources: true
   - name: venv
@@ -30,6 +28,8 @@ components:
       volumeMounts:
         - name: home
           path: /home/jovyan/work
+        - name: models
+          path: /models
       endpoints:
       - name: jupyterlab
         attributes:
@@ -41,7 +41,7 @@ components:
       memoryLimit: 2G
   - name: models
     container:
-      image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/george_cairns/data_tfhub_google_faster_rcnn_openimages_v4_inception_resnet_v2
+      image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/george_cairns/models_for_object_detection
       volumeMounts:
-        - name: home
-          path: /home/jovyan/models
+        - name: models
+          path: /models
