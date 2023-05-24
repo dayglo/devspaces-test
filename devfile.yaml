@@ -18,6 +18,9 @@ components:
   - name: home
     volume:
       size: 512Mi
+  - name: models
+    volume:
+      size: 5Gi
   - name: conda
     container:
       image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/george_cairns/jupyter-tensorflow
