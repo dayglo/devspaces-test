@@ -20,7 +20,7 @@ components:
       size: 512Mi
   - name: models
     volume:
-      size: 5Gi
+      size: 10Gi
   - name: conda
     container:
       image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/george_cairns/jupyter-tensorflow
@@ -31,8 +31,6 @@ components:
       volumeMounts:
         - name: home
           path: /home/jovyan/work
-        - name: models
-          path: /models
       endpoints:
       - name: jupyterlab
         attributes:
@@ -42,9 +40,14 @@ components:
         secure: true
         exposure: public
       memoryLimit: 2G
-  - name: models
+  - name: modelcontainer
     container:
       image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/george_cairns/models_for_object_detection
       volumeMounts:
-        - name: models
-          path: /models
+        - name: home
+          path: /home/jovyan/work
+commands:
+  - id: build
+    exec:
+      component: conda
+      commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
