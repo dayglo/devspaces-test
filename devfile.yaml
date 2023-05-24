@@ -42,12 +42,12 @@ components:
       memoryLimit: 2G
   - name: modelcontainer
     container:
-      image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/george_cairns/models_for_object_detection
+      image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/dylan_savage/models_for_object_detection
       volumeMounts:
         - name: home
-          path: /home/jovyan/work
-commands:
-  - id: build
-    exec:
-      component: conda
-      commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
+          path: /home/jovyan/work/models
+# commands:
+#   - id: build
+#     exec:
+#       component: conda
+#       commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
