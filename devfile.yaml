@@ -46,7 +46,7 @@ components:
       volumeMounts:
         - name: home
           path: /home/jovyan/work
-      command: ["cp", "-upR", "/models/", "/home/jovyan/work/"]
+      command: ["cp", "-upR", "/models/", "/tmp"]
 # commands:
 #   - id: build
 #     exec:
