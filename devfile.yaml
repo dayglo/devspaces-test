@@ -46,8 +46,9 @@ components:
       volumeMounts:
         - name: home
           path: /home/jovyan/work
-commands:
-  - id: build
-    exec:
-      component: modelcontainer
-      commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
+      command: ["mkdir", "-p", "/home/jovyan/work/models", "&&", "cp", "-upR", "/models*", "/home/jovyan/work/models/"]
+# commands:
+#   - id: build
+#     exec:
+#       component: modelcontainer
+#       commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
