@@ -6,4 +6,4 @@ RUN mkdir -p /opt/notebooks
 
 CMD ["bash", "-c", "jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8888 \
-    --no-browser --allow-root"]
+    --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''"]

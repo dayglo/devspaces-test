@@ -49,5 +49,5 @@ components:
 commands:
   - id: build
     exec:
-      component: conda
+      component: modelcontainer
       commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
