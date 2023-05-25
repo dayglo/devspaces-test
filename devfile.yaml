@@ -45,7 +45,7 @@ components:
       image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/dylan_savage/models_for_object_detection
       volumeMounts:
         - name: home
-          path: /home/jovyan/work/models
+          path: /models
 # commands:
 #   - id: build
 #     exec:
