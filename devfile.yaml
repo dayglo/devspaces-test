@@ -45,9 +45,9 @@ components:
       image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/dylan_savage/models_for_object_detection
       volumeMounts:
         - name: home
-          path: /models
-# commands:
-#   - id: build
-#     exec:
-#       component: conda
-#       commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
+          path: /home/jovyan/work
+commands:
+  - id: build
+    exec:
+      component: conda
+      commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
