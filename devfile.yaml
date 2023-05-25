@@ -23,7 +23,7 @@ components:
       size: 10Gi
   - name: conda
     container:
-      image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/george_cairns/jupyter-tensorflow
+      image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/dylan_savage/jupyter-tensorflow
       mountSources: true
       env:
         - name: NOTEBOOK_ARGS
