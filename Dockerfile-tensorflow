@@ -8,17 +8,23 @@ RUN mkdir /home/$NB_USER/images
 
 COPY ./images/* /home/$NB_USER/images 
 
-RUN chgrp -R root /home/$NB_USER \
-    && find /home/$NB_USER -type d -exec chmod g+rwx,o+rx {} \; \
-    && find /home/$NB_USER -type f -exec chmod g+rw {} \; \
-    && chgrp -R root /opt/conda \
-    && find /opt/conda -type d -exec chmod g+rwx,o+rx {} \; \
-    && find /opt/conda -type f -exec chmod g+rw {} \;
+RUN chgrp -R root /home/$NB_USER && \
+    find /home/$NB_USER -type d | xargs -r0 -d '\n' chmod g+rwx,o+rx && \
+    find /home/$NB_USER -type f | xargs -r0 -d '\n' chmod g+rw && \
+    chgrp -R root /opt/conda && \
+    find /opt/conda -type d | xargs -r0 -d '\n' chmod g+rwx,o+rx && \
+    find /opt/conda -type f | xargs -r0 -d '\n' chmod g+rw
 
-RUN mkdir -p /projects  \
-    && chgrp -R root /projects \
-    && find /projects -type d -exec chmod g+rwx,o+rx {} \; \
-    && find /projects -type f -exec chmod g+rw {} \;
+RUN mkdir -p /projects && \
+    chgrp -R root /projects && \
+    find /projects -type d | xargs -r0 -d '\n' chmod g+rwx,o+rx && \
+    find /projects -type f | xargs -r0 -d '\n' chmod g+rw
+
+RUN mkdir -p /home/$NB_USER/models/inception_resnet_v2 /home/$NB_USER/models/tfhub_module && \
+    wget -qO- /tmp/inception_resnet_v2.tar.gz https://storage.googleapis.com/tfhub-modules/google/faster_rcnn/openimages_v4/inception_resnet_v2/1.tar.gz | tar -vxf - -z -C /home/$NB_USER/models/inception_resnet_v2 || $true && \
+    wget -qO- /tmp/tfmodule_v1.tar https://tfhub.dev/google/openimages_v4/ssd/mobilenet_v2/1?tf-hub-format=compressed | tar -vxf - -z -C /home/$NB_USER/models/tfhub_module || $true && \
+    find /home/$NB_USER/models/ -type d | xargs -r0 -d '\n' chmod g+rwx,o+rx && \
+    find /home/$NB_USER/models/ -type f | xargs -r0 -d '\n' chmod g+rw
 
 ENV HOME /home/$NB_USER
 

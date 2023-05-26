@@ -40,15 +40,3 @@ components:
         secure: true
         exposure: public
       memoryLimit: 2G
-  - name: modelcontainer
-    container:
-      image: dso-quay-registry-quay-quay-enterprise.apps.ocp1.azure.dso.digital.mod.uk/dylan_savage/models_for_object_detection
-      volumeMounts:
-        - name: home
-          path: /home/jovyan/work
-      command: ["cp", "-upR", "/models/", "/tmp"]
-# commands:
-#   - id: build
-#     exec:
-#       component: modelcontainer
-#       commandLine: mkdir -p /home/jovyan/work/models && cp -u -p -R /models* /home/jovyan/work/models/
