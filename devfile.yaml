@@ -40,3 +40,4 @@ components:
         secure: true
         exposure: public
       memoryRequest: 8G
+      memoryLimit: 8G
