@@ -39,4 +39,4 @@ components:
         protocol: https
         secure: true
         exposure: public
-      memoryLimit: 2G
+      memoryLimit: 8G
