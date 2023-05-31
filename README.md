@@ -2,10 +2,10 @@
 
 This repo contains example source code for a data science project.
 
-Click this button to *use* the project:-
+*Use* the project:-
 [![Contribute](https://www.eclipse.org/che/contribute.svg)](https://devspaces.apps.ocp1.azure.dso.digital.mod.uk/#https://github.com/dayglo/devspaces-test/tree/tensorflow-test)
 
-Click this button to *work on* the project:-
+*Work on* the project:-
 [![Contribute](https://www.eclipse.org/che/contribute.svg)](https://devspaces.apps.ocp1.azure.dso.digital.mod.uk/#https://github.com/dayglo/devspaces-test)
 
 
