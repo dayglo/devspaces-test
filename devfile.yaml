@@ -2,7 +2,7 @@ schemaVersion: 2.1.0
 metadata:
   name: DDAP-object-detection
 components:
-  - name: IDE
+  - name: ide
     container:
       image: registry.redhat.io/devspaces/code-rhel8:latest
       volumeMounts:
