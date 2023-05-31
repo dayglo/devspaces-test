@@ -1,8 +1,8 @@
 schemaVersion: 2.1.0
 metadata:
-  name: DDAP-object-detection
+  name: python-hello-world
 components:
-  - name: ide
+  - name: python
     container:
       image: registry.redhat.io/devspaces/code-rhel8:latest
       volumeMounts:
